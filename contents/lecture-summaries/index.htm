@@ -1,0 +1,653 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture Summaries | Linear Partial Differential Equations: Analysis and Numerics | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-303-linear-partial-differential-equations-analysis-and-numerics-fall-2014" name="WT.cg_n">
+<meta content="Lecture Summaries" name="WT.cg_s">
+<meta content="This section provides lecture summaries for each lecture session of the course and associated handouts." name="Description">
+<meta content="Johnson, Steven G." name="Author">
+<meta content="18.303,diffusion,Laplace equations,Poisson,wave equations,separation of variables,Fourier series,Fourier transforms,eigenvalue problems,Green's function,Heat Equation,Sturm-Liouville Eigenvalue problems,quasilinear PDEs,Bessel functionsORDS,Differential Equations,Applied Mathematics,Linear Algebra" name="keywords">
+<meta content="18.303 Linear Partial Differential Equations: Analysis and Numerics | Lecture Summaries" name="Search_Display">
+<meta content="Differential Equations" itemprop="about">
+<meta content="Applied Mathematics" itemprop="about">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/search.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-303-linear-partial-differential-equations-analysis-and-numerics-fall-2014/lecture-summaries/">
+<link rel="apple-touch-icon" href="../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../common/scripts/expandy.js"></script><script type="text/javascript" src="https://ocw.mit.edu//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&amp;adInstanceId=70ac07d7-b28f-4071-816f-d292aba4849f"></script><script type="text/javascript" src="../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body>
+<div id="fbQuote" name="fbQuote">
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId            : '549343822066688',
+              autoLogAppEvents : true,
+              xfbml            : true,
+              version          : 'v2.11'
+            });
+	        FB.AppEvents.logEvent('Share',1);
+          };
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+</div>
+
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+    
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="https://ocw.mit.edu/images/icon_twitter.png" alt="Click to visit our Twitter feed."></a>   <a aria-label="YouTube" href="https://www.youtube.com/mitocw"><img src="https://ocw.mit.edu/images/icon_yt.png" alt="Click to visit our YouTube page."></a>   <a aria-label="Open Matters blog on WordPress" href="https://mitopencourseware.wordpress.com/"><img src="https://ocw.mit.edu/images/icon_wp.png" alt="Click to visit our blog on WordPress."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a6d6567612d6d656e75" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a6d6567612d6d656e75">
+<div class="portletStaticText portlet-static-mega-menu"><div><nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+<a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+</li>
+    <!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses">
+<a href="#" aria-hidden="true">FIND COURSES</a><!-- Begin 5 columns Item -->
+    <div class="dropdown_5columns-a mega-courses">
+    <div class="col_1a">
+    <div class="row_1a">
+<nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+    <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+        <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+        <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+    </ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+    <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+        <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+        <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+        <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+        <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+        <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+        <li><a href="https://ocw.mit.edu/high-school/">OCW Highlights for High School</a></li>
+        <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx &amp; Related OCW Courses</a></li>
+    </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true" style="line-height: 1.3;">Cross-Disciplinary Topic Lists</span>
+    <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+        <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+        <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+        <li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+        <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+        <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+    </ul></nav>
+</div>
+    <div class="row_1b"><nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Translated Courses</span>
+    <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+        <li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+        <li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+        <li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+    </ul></nav></div>
+    </div>
+    </div>
+    </li>
+    <li id="drop_2">
+<a href="#" aria-label="For Educators">For Educators</a>
+    <div class="dropdown_1column-a" style="width: 270px;"><nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">OCW Educator Portal</span>
+    <ul role="presentation">
+<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Search for Instructor Insights</a></li>
+        <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Search for Teaching Materials</a></li>
+    </ul>
+<span id="mm-collections" class="nav" aria-hidden="true">OCW Collections</span>
+    <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/instructor-insights/">Instructor Insights by Department</a></li>
+        <li><a href="https://ocw.mit.edu/courses/find-by-topic/#cat=teachingandeducation">MIT Courses about Teaching and Education</a></li>
+    </ul>
+<span id="mm-collections" class="nav" aria-hidden="true">K-12</span>
+    <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">OCW Highlights for High School</a></li>
+        <li><a href="https://www.k12videos.mit.edu/videos" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+    </ul>
+<span id="mm-higher-ed" class="nav" aria-hidden="true">Higher Ed</span>
+    <ul>
+<li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+        <li><a href="https://ocw.mit.edu/courses/mit-curriculum-guide/">MIT Undergraduate Curriculum Map</a></li>
+    </ul></nav></div>
+    </li>
+    <li id="drop_3">
+<a href="#" aria-hidden="true">Give Now</a>
+    <div class="dropdown_1column-a"><nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/give/">Make a Donation</a></li>
+        <li><a href="https://ocw.mit.edu/give/why-give/">Why Give?</a></li>
+        <li><a href="https://ocw.mit.edu/give/our-supporters/">Our Supporters</a></li>
+        <li><a href="https://ocw.mit.edu/give/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+        <li><a href="https://ocw.mit.edu/give/shop-ocw">Shop OCW</a></li>
+        <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+    </ul></nav></div>
+    </li>
+    <li id="drop_4">
+<a href="#" aria-hidden="true">About</a>
+    <div class="dropdown_1column-a"><nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+        <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+        <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+        <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    </ul></nav></div>
+    </li>
+</ul></nav></div></div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<script>
+  (function() {
+	var cx = '012626166551961672889:owjdpuboktq';
+	var gcse = document.createElement('script');
+	gcse.type = 'text/javascript';
+	gcse.async = true;
+	gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(gcse, s);
+  })();
+  window.onload = function(){
+	document.getElementById('gsc-i-id1').placeholder = 'Search';	
+  };
+
+$(document).ready(function(){
+
+$('.advanceSearch a').keydown(function(event){showSearchTips($(this),event);})
+$('#searchTipsModal').keydown(function(event){showSearchTips($(this),event);})
+
+function showSearchTips(obj,evt) {
+// if pressed enter key
+	if ( evt.which == 13 || evt.which == 32) {
+		showModal();
+		ga('send', 'pageview', "AdvanceSearch");
+		$(".advanceSearch a").attr('aria-expanded', 'true');
+		$('.searchTipsModal').focus();
+		evt.preventDefault();
+		}
+	if ( evt.which == 27 ) {
+		hideModal();
+		$(".advanceSearch a").attr('aria-expanded', 'false');
+		var modal = document.getElementById('searchTipsModal');
+		modal.style.display = "none";
+		$(".advanceSearch a").focus();
+		evt.preventDefault();
+		}
+}
+
+});
+function showModal(){
+	var modal = document.getElementById('searchTipsModal');
+	modal.style.display = "block";
+	ga('send', 'pageview', "AdvanceSearch");
+	document.getElementById("searchTipsBtn").setAttribute("aria-expanded", true);
+	window.setTimeout(function () {
+    document.getElementById('searchTipsModal').focus(); }, 0);
+}
+
+function hideModal(){
+	var modal = document.getElementById('searchTipsModal');
+	modal.style.display = "none";
+	document.getElementById("searchTipsBtn").setAttribute("aria-expanded", false);
+}
+</script><div id="search" role="search" class="grid_4 omega">
+    	<table class="search"><tbody><tr>
+<td><div class="searchboxheader"><searchbox-only resultsurl="/search/ocwsearch.htm"></searchbox-only></div></td>
+						<td>
+							<div class="advanceSearch">
+								<a id="searchTipsBtn" onclick="showModal();" href="#" role="button" aria-label="search tips" aria-expanded="false" aria-describedby="searchtips">Search Tips</a>
+
+								<!-- The Modal -->
+								<div id="searchTipsModal" class="modal" tabindex="-1">
+								  <!-- Modal content -->
+									<div class="modal-content">
+										<div class="modal-body">
+											<button class="close" onclick="hideModal();" aria-label="close">X</button>
+											<span>
+												<b>Exclude words from your search</b>
+												<br>Put - in front of a word you want to leave out. For example, jaguar speed -car
+												<br><br><b>Search for an exact match</b>
+												<br>Put a word or phrase inside quotes. For example, "tallest building".
+												<br><br><b>Search for wildcards or unknown words</b>
+												<br>Put a * in your word or phrase where you want to leave a placeholder. For example, "largest * in the world".
+												<br><br><b>Search within a range of numbers</b>
+												<br>Put .. between two numbers. For example, camera $50..$100.
+												<br><br><b>Combine searches</b>
+												<br>Put "OR" between each search query. For example,  marathon OR race.
+												<br><br></span>
+										</div>
+								  </div>
+								</div>
+							</div>
+						</td>
+					</tr></tbody></table>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../contents/index.htm">Linear Partial Differential Equations: Analysis and Numerics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture Summaries
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture Summaries
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../contents/lecture-summaries/index.htm">
+		                  Lecture Summaries  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><div class="maintabletemplate"><table summary="See table caption for summary.">
+<caption class="invisible">Lecture summaries files.</caption>       <thead><tr>
+<th scope="col">SES #</th>             <th scope="col">LECTURE SUMMARIES</th>             <th scope="col">HANDOUTS</th>         </tr></thead>
+<tbody>
+<tr class="row">
+<td>1</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture1.pdf">Overview of linear PDEs and analogies with matrix algebra (PDF)</a></td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lec1.pdf">A few important PDEs (PDF)</a></td>         </tr>
+<tr class="alt-row">
+<td>2</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture2.pdf">Poisson's equation and eigenfunctions in 1d: Fourier sine series (PDF)</a></td>             <td>
+<p><a href="../../contents/lecture-summaries/MIT18_303F14_sines.pdf">Fourier sine series examples (PDF)</a></p>             <p><a href="http://nbviewer.ipython.org/url/math.mit.edu/~stevenj/18.303/lecture-2.ipynb">sine-series Julia notebook</a></p>
+</td>         </tr>
+<tr class="row">
+<td>3</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture3.pdf">Finite-difference methods and accuracy (PDF)</a></td>             <td>
+<p><a href="../../contents/lecture-summaries/MIT18_303F14_difference.pdf">Notes on difference approximations (PDF)</a></p>             <p><a href="http://nbviewer.ipython.org/url/math.mit.edu/~stevenj/18.303/lecture-3.ipynb">IJulia notebook from the in-class demo</a></p>
+</td>         </tr>
+<tr class="alt-row">
+<td>4</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture4.pdf">Discrete vs. continuous Laplacians: Symmetry and dot products (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="row">
+<td>Optional</td>             <td><a href="https://github.com/stevengj/julia-mit/">Julia Tutorial</a></td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Julia_cheat.pdf">Julia &amp; IJulia Cheat-sheet (PDF)</a></td>         </tr>
+<tr class="alt-row">
+<td>5</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture5.pdf">Diagonalizability of infinite-dimensional Hermitian operators (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="row">
+<td>6</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture6.pdf">Start with a truly discrete (finite-dimensional) system, and then derive the continuum PDE model as a limit or approximation (PDF)</a></td>             <td>
+<img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif"><a href="../../contents/lecture-summaries/MIT18_303F14_Lec6.pdf">Notes on from discrete to continuum (PDF)</a>
+</td>         </tr>
+<tr class="alt-row">
+<td>7</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture7.pdf">Start in 1d with the "Sturm-Liouville operator", generalize Sturm-Liouville operators to multiple dimensions (PDF)</a></td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lec7.pdf"><img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif">Notes on elliptic operators (PDF - 1.2MB)</a></td>         </tr>
+<tr class="row">
+<td>8</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture8.pdf">Music and wave equations, Separation of variables, in time and space (PDF)</a></td>             <td>
+<p><img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif"><a href="../../contents/lecture-summaries/MIT18_303F14_music.pdf">18.303 and music (PDF)</a></p>             <p><img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif"><a href="../../contents/lecture-summaries/MIT18_303F14_scale_notes.pdf">Music scales and intervals (PDF)</a></p>             <p><a href="../../contents/lecture-summaries/MIT18_303F14_separation.pdf">Notes on separation of variables (PDF)</a></p>
+</td>         </tr>
+<tr class="alt-row">
+<td>9</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture9.pdf">Separation of variables in cylindrical geometries: Bessel functions (PDF)</a></td>             <td>
+<p><a href="../../contents/lecture-summaries/MIT18_303F14_Lec9.pdf"><img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif">Notes on Bessel functions and cylindrical problems (PDF)</a></p>             <p><a href="http://math.mit.edu/~stevenj/18.303/lecture-8.html">IJulia Bessel-function notebook</a></p>
+</td>         </tr>
+<tr class="row">
+<td>10</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture10.pdf">General Dirichlet and Neumann boundary conditions (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>11</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture11.pdf">Multidimensional finite differences (PDF)</a></td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lec11.pdf"><img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif">Notes on finite differences in 2(+) dimensions (PDF)</a></td>         </tr>
+<tr class="row">
+<td>12</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture12.pdf">Kronecker products (PDF)</a></td>             <td><a href="http://math.mit.edu/~stevenj/18.303/lecture-10.html">IJulia notebook lecture 10</a></td>         </tr>
+<tr class="alt-row">
+<td>13</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture13.pdf">The min-max theorem (PDF)</a></td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_minmax.pdf">Notes on the min–max theorem (PDF)</a></td>         </tr>
+<tr class="row">
+<td>14</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture14.pdf">Green's functions with Dirichlet boundaries (PDF)</a></td>             <td>
+<p><a href="../../contents/lecture-summaries/MIT18_303F14_green.pdf">Introduction to Green's functions (PDF)</a></p>             <p><a href="../../contents/lecture-summaries/MIT18_303F14_Green_explicit.pdf">Notes on the 1d-Laplacian Green's function (PDF)</a></p>
+</td>         </tr>
+<tr class="alt-row">
+<td>15</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture15.pdf">Reciprocity and positivity of Green's functions (PDF)</a></td>             <td>
+<p><a href="../../contents/lecture-summaries/MIT18_303F14_reciprocity.pdf">Notes on reciprocity and positivity of Green's functions (PDF)</a></p>             <p><a href="../../contents/lecture-summaries/MIT18_303F14_delta_notes.pdf">Notes on delta functions and distributions (PDF)</a></p>
+</td>         </tr>
+<tr class="row">
+<td>16</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture16.pdf">Delta functions and distributions (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>17</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture17.pdf">Green's function of ∇<sup>2</sup> in 3d for infinite space, the method of images (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="row">
+<td>18</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture18.pdf">The method of images, interfaces, and surface integral equations (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>19</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture19.pdf">Green's functions in inhomogeneous media: Integral equations and Born approximations (PDF)</a></td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_inhomog_notes.pdf">Notes on Green's functions in inhomogeneous media (PDF)</a></td>         </tr>
+<tr class="row">
+<td>20</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture20.pdf">Dipole sources and approximations, Overview of time-dependent problems (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>21</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture21.pdf">Time-stepping and stability: Definitions, Lax equivalence (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="row">
+<td>22</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture22.pdf">Von Neumann analysis and the heat equation (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>23</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture23.pdf">Algebraic properties of wave equations and unitary time evolution, Conservation of energy in a stretched string (PDF)</a></td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_wave_equation.pdf">Notes on the algebraic structure of wave equations (PDF)</a></td>         </tr>
+<tr class="row">
+<td>24</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture24.pdf">Staggered discretizations of wave equations (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>25</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture25.pdf">Traveling waves: D'Alembert's solution (PDF)</a></td>             <td>
+<img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif"><a href="../../contents/lecture-summaries/MIT18_303F14_fourier_disp.pdf">Notes on Fourier transforms, wave velocity, and dispersion (PDF - 2.1MB)</a>
+</td>         </tr>
+<tr class="row">
+<td>26</td>             <td>Group-velocity derivation and dispersion. Please see the related contents in <img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif"><a href="../../contents/lecture-summaries/MIT18_303F14_fourier_disp.pdf">Notes on Fourier transforms, wave velocity, and dispersion (PDF - 2.1MB)</a>
+</td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>27</td>             <td>Material dispersion and convolutions. Please see the related contents in <img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif"><a href="../../contents/lecture-summaries/MIT18_303F14_fourier_disp.pdf">Notes on Fourier transforms, wave velocity, and dispersion (PDF - 2.1MB)</a>
+</td>             <td>No handouts</td>         </tr>
+<tr class="row">
+<td>28</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture28.pdf">General topic of waveguides, Superposition of modes, Evanescent modes (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>29</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture29.pdf">Waveguide modes, Reduced eigenproblem (PDF)</a></td>             <td>
+<img alt="This resource may not render correctly in a screen reader." src="../../common/images/inacessible.gif"><a href="../../contents/lecture-summaries/MIT18_303F14_waveguide.pdf">Notes on propagating and evanescent modes in waveguides (PDF)</a>
+</td>         </tr>
+<tr class="row">
+<td>30</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture30.pdf">Guidance, reflection, and refraction at interfaces between regions with different wave speeds (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>31</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture31.pdf">Numerical examples of total internal reflection (PDF)</a></td>             <td>
+<p><a href="http://nbviewer.ipython.org/url/math.mit.edu/~stevenj/18.303/Waveguide-Modes.ipynb">Waveguide modes IJulia notebook</a></p>             <p><a href="../../contents/lecture-summaries/MIT18_303F14_slow_wave.pdf">Variational proof of slow-wave localization (PDF)</a></p>
+</td>         </tr>
+<tr class="row">
+<td>32</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture32.pdf">Perfectly matched layers (PML) (PDF)</a></td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_pml.pdf">Notes on perfectly matched layers (PDF)</a></td>         </tr>
+<tr class="alt-row">
+<td>33</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture33.pdf">Perturbation theory and Hellman-Feynman theorem (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="row">
+<td>34</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture34.pdf">Finite element methods: Introduction (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>35</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture35.pdf">Galerkin discretization (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="row">
+<td>36</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture36.pdf">Convergence proof for the finite-element method, Boundary conditions and the finite-element method (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="alt-row">
+<td>37</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture37.pdf">Finite-element software (PDF)</a></td>             <td>No handouts</td>         </tr>
+<tr class="row">
+<td>38</td>             <td><a href="../../contents/lecture-summaries/MIT18_303F14_Lecture38.pdf">Symmetry and linear PDEs (PDF)</a></td>             <td>No handouts</td>         </tr>
+</tbody>
+</table></div> <p> </p>
+	                    
+    
+    
+    
+
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer"><div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/instructor-insights/">Instructor Insights</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx &amp; Related OCW Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2"><nav aria-labelledby="f-for-educators"><span id="f-for-educators" class="footer" aria-hidden="true">For Educators</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Search for Instructor Insights</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Search for Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/instructor-insights/">Instructor Insights by Department</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-topic/#cat=teachingandeducation">MIT Courses about Teaching and Education</a></li>
+    <li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="http://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mit-curriculum-guide/">MIT Undergraduate Curriculum Map</a></li>
+</ul></nav></div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Give Now</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/give/">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/give/why-give/">Why Give?</a></li>
+    <li><a href="https://ocw.mit.edu/give/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/give/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/give/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+</nav><aside style="min-height: 289px;" aria-labelledby="f-our-corporate-supporters" class="grid_4 omega" id="foot-c5"><span aria-hidden="true" class="footer" id="f-our-corporate-supporters">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div id="div-gpt-ad-1388181177156-0" class="sponsors_google_ads_even"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div id="div-gpt-ad-1388181177156-1" class="sponsors_google_ads_odd"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div id="div-gpt-ad-1388181177156-2" class="sponsors_google_ads_even"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div id="div-gpt-ad-1388181177156-3" class="sponsors_google_ads_odd"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div id="div-gpt-ad-1388181177156-4" class="sponsors_google_ads_even"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div id="div-gpt-ad-1388181177156-5" class="sponsors_google_ads_odd"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><div class="grid_12 alpha omega" itemprop="publisher" itemscope="" itemtype="http://schema.org/CollegeOrUniversity">
+<h4 class="footer" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;">About <span itemprop="name">MIT OpenCourseWare</span>
+</h4>
+<p style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;" itemprop="description">MIT OpenCourseWare makes the materials used in the teaching of almost all of MIT's subjects available on the Web, free of charge. With more than 2,400 courses available, OCW is delivering on the promise of open sharing of knowledge. <a href="http://ocw.mit.edu/about/">Learn more »</a></p>
+</div>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu"><img src="../../common/images/logo_mit.png" alt="Massachusetts Institute of Technology logo and name." style="width: 195; height: 44;"></a><a href="http://odl.mit.edu"><img src="https://ocw.mit.edu/images/logo_odl.png" alt="MIT Office of Digital Learning logo and name." style="width: 289; height: 54; vertical-align: top;"></a><a href="http://www.oeconsortium.org/"><img src="https://ocw.mit.edu/images/logo_oec.png" alt="Open Education Consortium logo." style="width: 219px; height: 59px; vertical-align: top;"></a><a rel="license" itemprop="useRightsUrl" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="../../common/images/cc_by-nc-sa.png" alt="Creative Commons logo with terms BY-NC-SA." style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;"></a>
+<p class="copyright">© 2001–2018<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">Creative Commons License</a> and other <a href="../../common/terms/index.htm" rel="cc:morePermissions">terms of use</a>.</p>
+</div>
+</div></div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

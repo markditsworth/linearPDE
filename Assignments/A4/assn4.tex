@@ -1,0 +1,29 @@
+\documentclass{amsart}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{PDE: Assignment 4}
+\author{Mark Ditsworth}
+
+\begin{document}
+	\maketitle
+	
+	\section{Problem 1}
+	Consider the operator $\hat{A} = -c(x)\triangledown^2$ in a 2d region $\Omega \subset \mathbb{R}^2$ with Dirichlet boundaries where $c(x) > 0$. Suppose the eigenfunctions of $\hat{A}$ are $u_n(x)$ with eigenvalues $\lambda_n$ numbered in order ($\lambda_1 < \lambda_2 <\dots$).Let $G(x,x')$ be the Green's function of $\hat{A}$.
+	
+	\subsection{Part 1}
+	If $f(x) = \sum_{n}\alpha_n u_n(x)$, show $\alpha_n$ in terms of $f$ and $u_n$. Then find $\int_\Omega G(x,x')f(x')d^2x'$ in terms of $\alpha_n$ and $u_n$.
+	\\
+	\subsection{Part 2}
+	For any possible value of $u(x)$, find
+	\[
+		\frac{\int_\Omega \int_\Omega \frac{1}{c(x)}\overline{u(x)}G(x,x')u(x')d^2xd^2x'}{\int_{\Omega} \frac{|u(x'')|^2}{c(x'')}d^2x''}
+	\]
+	\\\\
+	\section{Problem 2}
+	Solve the Laplacian eigenproblem $-\triangledown^2u = \lambda u$ in a 2d radius-1 cylinder, $r<=1$ with Dirichlet boundary conditions $u|_{r=1,\Omega} = 0$ by ``brute force" in Julia and compare to the analytical Bessel solutions.
+	\\\\\\
+	\section{Problem 3}
+	Recall that the displacement $u(x,t)$ of a string (with fixed ends $u(0,t) = u(L,t) = 0$) satisfies the wave equation $\frac{\partial^2u}{\partial x^2} + f(x,t) = \frac{\partial^2u}{\partial t^2}$, where $f(x,t)$ is an external force density (pressure) on the string.
+\end{document}

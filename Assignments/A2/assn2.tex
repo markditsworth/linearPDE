@@ -1,0 +1,202 @@
+\documentclass{amsart}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{PDE: Assignment 2}
+\author{Mark Ditsworth}
+
+\begin{document}
+	\maketitle
+	
+	\section{Problem 1}
+	Consider the inner product defined as $<x,y> = x^*By$, where vectors $x,y \in \mathbb{C}^n$, and $B$ is positive definite Hermitian $n\times n$ matrix.
+	
+	\subsection{Part 1}
+	Show that $<x,y> = \overline{<y,x>}$.
+	\\\\
+	$\overline{<y,x>} = \overline{y^*Bx} = \overline{Bx}y = x^*B^*y$.
+	\\\\
+	Since $B$ is Hermitian, $B^* = B$, so $\overline{<y,x>} = x^*By = {<x,y>}$.
+	\\\\
+	\subsection{Part 2}
+	If $M$ is an arbitrary $n\times n$ matrix, define the adjoint $M^\dag$ by $<x,My> = <M^\dag x,y>$. Give an explicit formula for $M^\dag$ in terms of $M$ and $B$.
+	\\\\
+	\[ <x,My> = <M^\dag x,y>
+	\]
+	\[ x^*BMy = (M^\dag x)^*By
+	\]
+	\[ x^*BM = (M^\dagger x)^*B
+	\]
+	\[ x^*BMB^{-1} = (M^\dagger x)^* = x^*M^{\dagger *}
+	\]
+	\[ BMB^{-1} = M^{\dagger *}
+	\]
+	\[ M^\dagger = (BMB^{-1})^*
+	\]
+	\\\\
+	\subsection{Part 3}
+	Show that if for some $A=A^*$, and $M=B^{-1}A$, then $M=M^\dagger$.
+	\\\\
+	\[ M^\dagger = (BMB^{-1})^*
+	\]
+	\[ M^\dagger = (BB^{-1}AB^{-1})^*
+	\]
+	\[ M^\dagger = (AB^{-1})^*
+	\]
+	\[ M^\dagger = B^{-1*}A^*
+	\]
+	Since $B$ is Hermitian and $A=A^*$,
+	\[ M^\dagger = B^{-1}A = M
+	\]
+	\\\\
+	\section{Problem 2}
+	Consider the following system:
+	\[ \hat{A}u = \frac{d}{dx}\left[c\frac{du}{dx}\right]
+	\]
+	\subsection{Part 1}
+	Using center difference operations, approximate $\hat{A}u$ at $m\Delta x$.
+	\\\\
+	Let $u_m$ be the value of $u$ at point $m$, and $c_m$ be the value of $c$ at point $m$. $u'$ can then be approximated at point $m+0.5$ with center difference by\\
+	\[u'_{m} \approx \frac{u_{m+0.5} - u_{m-0.5}}{\Delta x}
+	\]\\
+	where $\Delta x$ is the difference between $m_n$ and $m_{n-1}$ The derivative of $c\frac{du}{dx}$ can then be approximated by
+	\\
+	\[\frac{d}{dx}\left[c_m\frac{du}{dx}\right] \approx
+	  \frac{c_{m+0.5}u'_{m+0.5} - c_{m-0.5}u'_{m-0.5}}{\Delta x}
+	\]\\
+	and by substituting $u'(m)$ in\\
+	\[ \frac{d}{dx}\left[c_m\frac{du}{dx}\right] \approx
+	   \frac{c_{m+0.5}\left( \frac{u_{m+1}- u_m}{\Delta x}\right) - c_{m-0.5}\left( \frac{u_m - u_{m-1}}{\Delta x}\right)}{\Delta x}
+	\]
+	\\\\
+	\subsection{Part 2}
+	Show that the finite-difference estimation from Part 1 corresponds to approximating $\hat{A}u$ by $A\mathbf{u}$, where $\mathbf{u}$ is the column vector of $M$ points $u_m$ and $A$ is the real-symmetric matrix $A = -D^TCD$.
+	\\\\
+	\[ D = \frac{1}{\Delta x} 
+	\begin{bmatrix}
+		1 		& 0		&\dots	& 0\\
+		-1 		& 1 	&\ddots	& 0\\
+		0 		& -1 	&\ddots & 0\\
+		\vdots 	&\ddots	&\ddots	& 1\\
+		0		& 0		& 0		&-1\\
+	\end{bmatrix}
+	\quad , \quad C =  
+	\begin{bmatrix}
+		c_{0.5}	& 0		& \dots	& 0 \\
+		0		&c_{1.5}&\ddots	& 0 \\
+		\vdots	&\ddots & \ddots& 0		\\
+		0		& 0		& 0		&c_{M+0.5}\\
+	\end{bmatrix}
+	\]
+	\\
+	\[
+	A\mathbf{u} = -D^TCD = \frac{1}{\Delta x^2}
+	\begin{bmatrix}
+		-c_{0.5} - c_{1.5} & c_{1.5} & 0 & \dots\\
+		c_{1.5} & -c_{1.5} - c_{2.5} & c_{2.5} & 0\\
+		0 & c_{2.5} &\ddots &\ddots \\
+		\vdots & 0 & \ddots &\ddots \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		u_0\\ u_1\\ \vdots \\u_{M+1}
+	\end{bmatrix}
+	\]
+	\\
+	\[ = 
+	\begin{bmatrix}
+		\frac{c_{1.5}(u_{2} - u_1) - c_{0.5}(u_1 - u_0)}{\Delta x^2}\\
+		\frac{c_{2.5}(u_{3} - u_2) - c_{1.5}(u_2 - u_{1})}{\Delta x^2}\\
+		\vdots\\
+		\frac{c_{m+0.5}(u_{m+1} - u_m) - c_{m-0.5}(u_m - u_{m-1})}{\Delta x^2}
+	\end{bmatrix}
+	\]
+	\\\\
+	\subsection{Part 3}
+	Let $c(x) = e^{3x}$. Use the above methods to attain the eigenvalues and eigenvectors. Plot the eigenvectors for the four smallest-magnitude eigenvalues. Verify that the first two eigenfunctions are orthogonal. Verify that you are getting second order convergence of the eigenvalues. ($L=1$, $M=100$)
+	\\\\
+	\textit{see notebook}
+	\pagebreak
+	\section{Problem 3}
+	Consider a metal bar with length $L$, cross sectional area $a$, and varying temperature $T$ along the rod. The rod is conceptually divided into $N$ pieces of length $\Delta x = L/N$. Each piece has a uniform temperature $T_n$, giving a vector $\mathbf{T}$ of $N$ temperatures. The rate at which heat flows from piece $n$ to piece $n+1$ is given by $q = \frac{\kappa a}{\Delta x}(T_n - T_{n+1})$ ($\kappa$ is the thermal conductivity of the rod). If an amount of heat $\Delta Q$ flows into a piece, the temperature changes by $\Delta T = \Delta Q / (c\rho a\Delta x)$ where $c$ is the specific heat capacity, and $\rho$ is the density of the metal. Assume the rod is ideally insulated.
+	\\
+	\subsection{Part 1}
+	Show that $\frac{dT_n}{dt} = \alpha(T_{n+1}-T_n) + \alpha(T_{n-1}-T_n)$. (This is Newton's Law of Cooling).
+	\\\\
+	\[ \frac{\Delta T_n}{\Delta t} = \frac{1}{c\rho a\Delta x}\frac{\Delta Q_n}{\Delta t}
+	\]\\
+	$\frac{\Delta Q_n}{\Delta t}$ is the rate of heat flow into piece $n$, which is the sum of the heat flow from it's neighbors.\\
+	\[ \frac{dT_n}{dt} = \frac{1}{c\rho a\Delta x}\left[
+	\frac{\kappa a}{\Delta x}(T_{n+1}-T_n) + 	\frac{\kappa a}{\Delta x}(T_{n-1}-T_n) \right]
+	\]\\
+	\[ \frac{dT_n}{dt} = \frac{\kappa}{c\rho \Delta x^2}\left[ (T_{n+1}-T_n)+(T_{n-1}-T_n) \right]
+	\]\\
+	which matches Newton's Law of Cooling, with $\alpha = \frac{\kappa}{c\rho\Delta x}$. At the end points,\\
+	\[ \frac{dT_1}{dt} = \frac{\kappa}{c\rho\Delta x^2}(T_2 - T_1) \quad , \quad \frac{dT_N}{dt} = \frac{\kappa}{c\rho\Delta x^2}(T_{N-1} - T_N)
+	\]
+	\\
+	\subsection{Part 2}
+	Write the equation from Part 1 in matrix form: $\frac{d\mathbf{T}}{dt} = A\mathbf{T}$, for some matrix $A$.
+	\\\\
+	\[\frac{d\mathbf{T}}{dt}=A\mathbf{T} = \frac{\kappa}{c\rho\Delta x^2}
+	\begin{bmatrix}
+		-1     & 1    & 0    &\dots & 0 \\
+		 1     & -2   & 1    & 0    & \vdots \\
+		 0     &\ddots&\ddots&\ddots& 0 \\
+		 \vdots&  0   &   1  &  -2  & 1\\
+		 0     &\dots &  0   &   1  & -1 \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		T_1\\T_2\\ \vdots \\ T_{N-1} \\ T_N
+	\end{bmatrix}
+	\]\\\\
+	
+	\subsection{Part 3}
+	Let $T(x,t)$ be the temperature along the rod. Suppose $T_n(t) = T([n-0.5]\Delta x,t)$ (the temperature at the center of the $n^{th}$ piece). Take the limit $N \rightarrow \infty$ (with $L$ fixed), and derive the PDE $\frac{\partial T}{\partial t}= \hat{A}T$. What is $\hat{A}$ (ignore the ends)?
+	\\\\
+	As $N\rightarrow\infty$, $\Delta x$ can be thought of as $\partial x$, and $T_{n+1} - T_n$ can be thought of as $\partial T(n,t)$.
+	\\\\
+	$(T_{n+1}-T_n) + (T_{n-1}-T_n)$ can also be expressed as  $(T_{n+1}-T_n) - (T_{n}-T_{n-1})$, which as $N \rightarrow \infty$ is $\partial^2T$.
+	\\\\
+	Thus
+	\[ \lim\limits_{N \rightarrow \infty} \left\{ \frac{dT_n}{dt} = \frac{\kappa}{c\rho \Delta x^2}\left[ (T_{n+1}-T_n)+(T_{n-1}-T_n) \right] \right\}
+	\]\\
+	becomes
+	\[\frac{\partial T}{\partial t} = \frac{\kappa}{c\rho}\frac{\partial^2T}{\partial x^2}
+	\]
+	\\\\
+	So, ignoring the ends,
+	\[\hat{A} = \frac{\kappa}{c\rho}\frac{\partial^2}{\partial x^2}
+	\]\\
+	\subsection{Part 4}
+	What are the boundary conditions on $T(x,t)$ at $x=0$ and $L$? Check that if you go backwards and form a center-difference approximation of $\hat{A}$ with these boundary conditions, you will recover matrix $A$.
+	\\\\
+	The boundary condition is the $\frac{\partial T}{\partial x} = 0$ at $x=0,L$ since there is 0 heat flow at the ends.
+	\\\\
+	The center-difference approximation of $\frac{\partial T}{\partial x}|_{n\Delta x} \approx T'_{n+0.5} = \frac{T_{n+1} - T_n}{\Delta x}$
+	\\\\
+	The center difference approximation of $T''_n = \frac{T'_{n+0.5} - T'_{n-0.5}}{\Delta x} =
+	\frac{T_{n+1}-T_n - (T_n - T_{n-1})}{\Delta x^2}$
+	\\\\
+	This is equivalent to $\frac{T_{n+1} - 2T_n + T_{n-1}}{\Delta x^2}$, which is the same expression from Part 1 (with $\frac{\kappa}{c\rho}=0$), and will thus result in the same $A$.
+	\\
+	\subsection{Part 5}
+	How does $\hat{A}$ change in the $N \rightarrow \infty$ limit if the conductivity is a function $\kappa(x)$ of $x$?
+	\\\\
+	\[ \frac{\partial T}{\partial t} = \frac{1}{c\rho}\frac{\partial \kappa \partial T}{\partial x^2}
+	\]
+	\\
+	Thus,
+	\[A = \frac{1}{c\rho} \frac{\partial}{\partial x}\kappa\frac{\partial}{\partial x}\]\\
+	\subsection{Part 6}
+	Suppose that instead of a thin bar (1D), you have a metal plate (2D) with a temperature $T(x,y,t)$ and constant conductivity $\kappa$. If you go through the steps above and divide it into $N\times N$ squares of size $\Delta x \times \Delta y$, what PDE do you get for $T$ in the limit $N \rightarrow \infty$.
+	\\\\
+	The PDE will be the sum of the partial derivatives in the $x$ and $y$ directions.\\
+	\[ \frac{dT_{m,n}}{dt} = \frac{\kappa}{c\rho}
+	\left[ \frac{T_{m+1,n} - 2T_{m,n} + T_{m-1,n}}{\Delta x^2} + \frac{T_{m,n+1} - 2T_{m,n} + T_{m,n-1}}{\Delta y^2} \right]
+	\]
+	And as $N \rightarrow \infty$,\\
+	\[ \frac{\partial T}{\partial t} = \hat{A}T =  \frac{1}{c\rho}\bigtriangledown \cdot \kappa \bigtriangledown T
+	\]
+	
+\end{document}

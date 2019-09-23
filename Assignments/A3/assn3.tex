@@ -1,0 +1,242 @@
+\documentclass{amsart}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{PDE: Assignment 3}
+\author{Mark Ditsworth}
+
+\begin{document}
+	\maketitle
+	
+	\section{Problem 1}
+	Consider a three-component vector field $\mathbf{u(x)}$ on some finite volume domain $\Omega \in \mathbb{R}^3$. Define the inner product of two vectors $\mathbf{u}$ and $\mathbf{v}$ by the volume integral: $\langle\mathbf{u},\mathbf{v}\rangle = \int_{\Omega} \overline{\mathbf{u}} \cdot \mathbf{v}$. Consider the curl operator $\triangledown \times$.
+	\\
+	\subsection{Part 1}
+	Derive the identity: $\triangledown \cdot (\mathbf{u} \times \mathbf{v}) = (\triangledown \times \mathbf{u}) \cdot \mathbf{v} - \mathbf{u} \cdot (\triangledown \times \mathbf{v})$
+	\\\\
+	\[ \triangledown \cdot (\mathbf{u} \times \mathbf{v})=
+	   \triangledown \cdot
+	   \begin{bmatrix}
+		   u_2v_3 - u_3v_2\\
+		   u_3v_1 - u_1v_3\\
+		   u_1v_2 - u_2v_1
+	   \end{bmatrix}=
+	   \frac{\partial}{\partial x}(u_2v_3 - u_3v_2) + \frac{\partial}{\partial y}(u_3v_1 - u_1v_3) + 
+	   \frac{\partial}{\partial z}(u_1v_2 - u_2v_1)
+	\]\\
+	
+	\[ (\triangledown \times \mathbf{u}) \cdot \mathbf{v} - \mathbf{u} \cdot (\triangledown \times \mathbf{v}) = 
+	\begin{bmatrix}
+		\frac{\partial u_3}{\partial y} - \frac{\partial u_2}{\partial z} &
+		\frac{\partial u_1}{\partial z} - \frac{\partial u_3}{\partial x} &
+		\frac{\partial u_2}{\partial x} - \frac{\partial u_1}{\partial y}
+	\end{bmatrix} \cdot \mathbf{v} - \mathbf{u} \cdot
+	\begin{bmatrix}
+		\frac{\partial v_3}{\partial y} - \frac{\partial v_2}{\partial z} \\
+		\frac{\partial v_1}{\partial z} - \frac{\partial v_3}{\partial x} \\
+		\frac{\partial v_2}{\partial x} - \frac{\partial v_1}{\partial y}
+	\end{bmatrix}
+	\]\\
+	
+	\[ = \frac{\partial u_3}{\partial y}v_1 - \frac{\partial u_2}{\partial z}v_1 +
+	\frac{\partial u_1}{\partial z}v_2 - \frac{\partial u_3}{\partial x}v_2 +
+	\frac{\partial u_2}{\partial x}v_3 - \frac{\partial u_1}{\partial y}v_3 - 
+	\frac{\partial v_3}{\partial y}u_1 + \frac{\partial v_2}{\partial z}u_1 -
+	\frac{\partial v_1}{\partial z}u_2 + \frac{\partial v_3}{\partial x}u_2 -
+	\frac{\partial v_2}{\partial x}u_3 + \frac{\partial v_1}{\partial y}u_3
+	\]
+	\\
+	
+	\[ = \frac{\partial u_2}{\partial x}v_3 + \frac{\partial v_3}{\partial x}u_2 - \left( \frac{\partial u_3}{\partial x}v_2 +  \frac{\partial v_2}{\partial x}u_3\right) + \frac{\partial u_3}{\partial y}v_1 + \frac{\partial v_1}{\partial y}u_3 - \left( \frac{\partial u_1}{\partial y}v_3 + \frac{\partial v_3}{\partial y}u_1 \right) + \frac{\partial u_1}{\partial z}v_2 + \frac{\partial v_2}{\partial z}u_1 \]\\\[+ \left( \frac{\partial u_2}{\partial z}v_1 + \frac{\partial v_1}{\partial z}u_2\right)
+	\]\\
+	by the chain rule,\\
+	\[ =\frac{\partial}{\partial x}(u_2v_3 - u_3v_2) + \frac{\partial}{\partial y}(u_3v_1 - u_1v_3) + 
+	\frac{\partial}{\partial z}(u_1v_2 - u_2v_1)
+	\]\\
+	
+	\[ \therefore \triangledown \cdot (\mathbf{u} \times \mathbf{v}) = (\triangledown \times \mathbf{u}) \cdot \mathbf{v} - \mathbf{u} \cdot (\triangledown \times \mathbf{v})
+	\]
+	\\\\
+	\subsection{Part 2}
+	Show that $\langle\mathbf{u},\triangledown \times \mathbf{v}\rangle = \langle\triangledown \times \mathbf{u},\mathbf{v}\rangle + \iint_{\partial \Omega} 
+	\mathbf{w} \cdot dS$ for some $\mathbf{w}$.
+	\\\\
+	From Part 1, $\overline{\mathbf{u}} \cdot (\triangledown \times \mathbf{v}) = (\triangledown \times \overline{\mathbf{u}}) \cdot \mathbf{v} - \triangledown \cdot (\overline{\mathbf{u}} \times \mathbf{v})$
+	\\\\
+	\[ \int_{\Omega}\overline{\mathbf{u}} \cdot (\triangledown \times \mathbf{v}) = \int_{\Omega}(\triangledown \times \overline{\mathbf{u}}) \cdot \mathbf{v} - \int_{\Omega} \triangledown \cdot (\overline{\mathbf{u}} \times \mathbf{v})
+	\]\\
+	From the definition of the inner product,
+	\\
+	\[\langle\mathbf{u},\triangledown \times \mathbf{v}\rangle = \langle\triangledown \times \mathbf{u},\mathbf{v}\rangle - \int_{\Omega} \triangledown \cdot (\overline{\mathbf{u}} \times \mathbf{v})
+	\]\\
+	Using the divergence theorem,
+	\\
+	\[\langle\mathbf{u},\triangledown \times \mathbf{v}\rangle = \langle\triangledown \times \mathbf{u},\mathbf{v}\rangle + \iint_{\partial \Omega} (\overline{\mathbf{u}} \times \mathbf{v}) \cdot dS.
+	\]
+	\\
+	Thus, $\mathbf{w} = \overline{\mathbf{u}} \times \mathbf{v}$, and we are done.
+	\\
+	\subsection{Part 3}
+	Give a possible boundary condition on the vector space such that $\triangledown\times$ is self-adjoint with this inner product.
+	\\\\
+	If $\langle \mathbf{u} ,\triangledown\times \mathbf{v} \rangle = \langle \triangledown\times \mathbf{u}, \mathbf{v} \rangle$ then $\triangledown\times$ is self-adjoint. For this to be true,\\ $\iint_{\partial\Omega} (\overline{\mathbf{u}}\times \mathbf{v})\cdot dS = 0$.
+	\\
+	
+	\noindent
+	Thus, with the boundary condition $\overline{\mathbf{u}} \times \mathbf{v} = 0$, the above equality will be true and $\triangledown\times$ will be self-adjoint.
+	\\
+	\subsection{Part 4}
+	Show that $\triangledown\times\triangledown\times$ is self-adjoint for this inner product under \textit{either} some boundary condition on $\mathbf{u}$ or some boundary condition on the \textit{derivatives} of $\mathbf{u}$. Is it positive or negative definite or semi-definite?
+	\\\\
+	If $\langle \mathbf{u},\triangledown\times\triangledown\times\mathbf{v}\rangle = \langle \triangledown\times\triangledown\times\mathbf{u},\mathbf{v}\rangle$ then $\triangledown\times\triangledown\times$ is self-adjoint.
+	\\
+	\[
+	\langle \mathbf{u},\triangledown\times\triangledown\times \mathbf{v}\rangle = \langle \triangledown\times\mathbf{u},\triangledown\times\mathbf{v}\rangle + \iint_{\partial\Omega} (\overline{\mathbf{u}} \times \triangledown\times \mathbf{v}) \cdot dS
+	\]
+	\[
+	\langle\mathbf{u},\triangledown\times\triangledown\times \mathbf{v}\rangle = \langle \triangledown\times\triangledown\times\mathbf{u}, \mathbf{v}\rangle + \iint_{\partial\Omega}(\triangledown\times\overline{\mathbf{u}}\times\mathbf{v})\cdot dS + \iint_{\partial\Omega} (\overline{\mathbf{u}} \times \triangledown\times \mathbf{v}) \cdot dS
+	\]\\
+	If $\mathbf{u}\times \mathbf{n}|_{\partial\Omega} = 0$ or $\triangledown\times\mathbf{u}\times\mathbf{n}|_{\partial\Omega}=0$, then $\triangledown\times\triangledown\times$ is self-adjoint.
+	\\\\
+	$\langle\mathbf{u},\triangledown\times\triangledown\times\mathbf{u}\rangle = \langle\triangledown\times\mathbf{\overline{u}},\triangledown\times\mathbf{u}\rangle = \int_{\Omega}|\triangledown\times\mathbf{u}|^2 \geq 0$, thus it is positive semi-definite.
+	\subsection{Part 5}
+	Two of Maxwell's equations are $\triangledown\times \mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$ and $\triangledown\times\mathbf{B} = \frac{1}{c^2}\frac{\partial\mathbf{E}}{\partial t}$. Take the curl of both sides of the first equation to obtain a PDE in $\mathbf{E}$ alone. Suppose that $\Omega$ is the interior of a hollow metal container, where the boundary conditions are that $\mathbf{E}$ is perpendicular to the metal at the surface. Combining these facts with the previous parts, explain why one would expect \textit{oscillating} solutions to Maxwell's equations.
+	\\\\
+	\[
+	\triangledown\times\triangledown\times\mathbf{E} = \triangledown\times -\frac{\partial \mathbf{B}}{\partial t} = -\frac{1}{c^2}\frac{\partial^2 \mathbf{E}}{\partial t^2}
+	\]
+	\[
+	\frac{\partial^2\mathbf{E}}{\partial t^2} =  \hat{A}\mathbf{E}
+	\]
+	\noindent
+	where $\hat{A}=-c^2 \triangledown\times\triangledown\times$. Since $\mathbf{E}$ is normal to the surface, Part 4 gives that $\hat{A}$ is self-adjoint and negative semi-definite. Thus, the PDE is a Hyperbolic equation with eigenvalues $\lambda\leq0$, and thus, oscillating solutions.
+	\\\\\\
+	\section{Problem 2}
+	Solve for the 2-D eigenfunctions of $\triangledown^2$ in an annular region $\Omega$ that \textit{does not contain the origin}, so that you will need both $J_m$ and $Y_m$ solutions to Bessel's equation. The separation of variables $u(r,\Theta) = \rho(r)\tau(\Theta)$ leads to functions $\tau(\Theta)$ spanned by $\sin(m\Theta)$ and $\cos(m\Theta)$ and functions $\rho(r)$ that satisfy Bessel's equation. That is, the eigenfunctions are of the form:
+	\[ u(r,\Theta) = [\alpha J_m(kr) + \beta Y_m(kr)] \times [A\cos(m\Theta) + B\sin(m\Theta) \]
+	for arbitrary constants $A$ and $B$, integers $m = 1,2,\dots$, and constants $\alpha$, $\beta$ and $k$, which must be determined.
+	
+	\noindent
+	The boundary conditions are Neumann boundary condition $\frac{\partial u}{\partial r} = 0$ at R1 and R2.
+	\\
+	\subsection{Part 1}
+	Using the boundary conditions, write two equations for $\alpha$, $\beta$, and $k$, of the form $E\left(
+	\begin{matrix}
+		\alpha \\ \beta
+	\end{matrix}
+	\right) = 0$ for some $2\times 2$ matrix $E$. This only has a solution when the determinant is 0. Use this fact to obtain a single equation for $k$ of the form $f_m(k) =0$ for some function $f_m$ that depends on $m$. In terms of $k$, write down a possible expression for $\alpha$, $\beta$.
+	\\\\
+	\[
+		\frac{\partial u}{\partial r} = \alpha J_m'(kr) + \beta Y_m'(kr) = 0|_{r=R_1,R_2}
+	\]
+	\\
+	\[
+	E\left[
+	\begin{matrix}
+	\alpha \\ \beta
+	\end{matrix}
+	\right] = 
+	\left[\begin{matrix}
+		J_m'(kR_1) & Y_m'(kR_1)\\
+		J_m'(kR_2) & Y_m'(kR_2)
+	\end{matrix}\right]
+	\left[
+	\begin{matrix}
+		\alpha \\ \beta
+	\end{matrix}\right] = \mathbf{0}
+	\]
+	\\
+	\[
+	f_m(k) = \det E = J_m'(kR_1)Y_m'(kR_2) - J_m'(kR_2)Y_m'(kR_1) = 0
+	\]
+	\\
+	\[
+	\frac{\partial u}{\partial r}|_{r=R_1} = \frac{\partial u}{\partial r}|_{r=R_2} = 0
+	\]
+	\\
+	\[
+	\alpha J_m'(kR_1)+\beta Y_m'(kR_1) = \alpha J_m'(kR_2)+\beta Y_m'(kR_2) = 0
+	\]
+	\\
+	\[
+	\beta = \alpha \frac{J_m'(kR_1)}{Y_m'(kR_1)} = \alpha \frac{J_m'(kR_2)}{Y_m'(kR_2)}
+	\]
+	\\
+	\subsection{Part 2}
+	Assuming $R1 = 1, R2=2$, plot $f_m(k)$ vs $k \in [0,20]$ for $m=0,1,2$.
+	\\
+	\textit{see notebook.}
+	\\
+	\subsection{Part 3}
+	For $m=0$, find the first three (smallest $k>0$)  solutions to $f_0(k) = 0$.
+	\\
+	\textit{see notebook.}
+	\\
+	\subsection{Part 4}
+	Since $\triangledown^2$ is self-adjoint, the eigenfunctions must be orthogonal. Check that the solutions from Part 3 are orthogonal.
+	\\
+	\textit{see notebook.}
+	\\
+	\subsection{Part 5}
+	Let the operator $\hat{A}$ now be $c(r)\triangledown^2$ with $c(r)=2$ for $r<R_1$ and $c(r)=1$ for $r\geq R_1$. Impose Dirichlet boundary conditions $u(R_2)=0$. What is the form of the eigenfunctions? If we solve for eigenfunctions $\hat{A}u = \lambda u$, with $u$ finite everywhere, what conditions must $u$ satisfy at $r=R_1$ for $\hat{A}u$ to be well-defined and finite? Write down a condition $f_m(k)=0$ that must be satisfied in order for the above equation to have a solution. The roots of this function give the eigenvalues.
+	\\\\
+	The eigenfunctions are of the form:
+	\[
+	u(r,\theta) = [A\cos(m\theta) + B\sin(m\theta)] \times \left\lbrace
+	\begin{matrix}
+		\alpha J_m(k_1r) & r<R_1\\
+		\beta J_m(k_2r) + \gamma Y_m(k_2r) & r>R_1
+	\end{matrix}\right.
+	\]
+	with $k_1 = k_2/\sqrt{2}$.\\
+	
+	If $\hat{A}$ is to be well defined and finite, then
+	\[
+	\alpha J_m(kR_1/\sqrt{2}) = \beta J_m(kR_1)+\gamma Y_m(kR_1)
+	\]
+	and
+	\[
+	\alpha J_m'(kR_1/\sqrt{2}) = \beta J_m'(kR_1) + \gamma Y_m'(kR_1)
+	\]
+	paired with the Dirichlet boundary conditions, this gives the system,
+	\[
+	\left[
+	\begin{matrix}
+		-J_m(kR_1/\sqrt{2}) & J_m(kR_1) & Y_m(kR_1)\\
+		-J_m'(kR_1/\sqrt{2}) & J_m'(kR_1) & Y_m(kR_1)\\
+		0 & J_m(kR_2) & Y_m(kR_2)
+	\end{matrix}\right]
+	\left[
+	\begin{matrix}
+		\alpha \\ \beta \\ \gamma
+	\end{matrix}
+	\right]= E_m(k)
+	\left[
+	\begin{matrix}
+		\alpha \\ \beta \\ \gamma]
+	\end{matrix}
+	\right] = \mathbf{0}
+	\]
+	$f_m(k)$ is thus $\det E_m(k)$.
+	
+	\section{Problem 3}
+	The Bessel functions $u(x) = J_m(kx)$, solve the eigenproblem:
+	\[
+	\hat{A}u = u'' + \frac{u'}{r} - \frac{m^2}{r^2}u = -k^2 = \lambda u
+	\]
+	on $[0,R]$ where $u(R)=0$ and $u(0)=0$ for $m>0$.
+	\\
+	\subsection{Part 1}
+	Show that $\hat{A}$ is of the form of a Sturm-Louville operator and is therefor self-adjoint for a particular inner product.
+	\\
+	\subsection{Part 2}
+	Show that $\hat{A}$ is negative definite.
+	\\
+	\subsection{Part 3}
+	Write a center-difference discretization of the operator $\hat{A}$ for $u_n = u(n\Delta x)$ with $m=1,\dots,R \Delta x = \frac{R}{N+1}$.
+	\\
+	\subsection{Part 4}
+	In Julia, for the matrix approximation $A$ of $\hat{A}$ for $m=1$ (with $N=100$, $R=1$). Compare its smallest-magnitude eigenfunction to $J_1(k_{1,1}r/R)$ where $k_{1,1}$ is the first root of $J_1$. 
+	
+\end{document}
